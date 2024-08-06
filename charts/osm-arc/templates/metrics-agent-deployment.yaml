@@ -29,7 +29,7 @@ spec:
       serviceAccount: {{ .Release.Name }}
       containers:
         - name: mdm
-          image: linuxgeneva-microsoft.azurecr.io/genevamdm:master_20220401.1
+          image: linuxgeneva-microsoft.azurecr.io/genevamdm:2.2024.626.1539-d1a6e7-20240715t0935
           imagePullPolicy: IfNotPresent
           resources:
             requests:

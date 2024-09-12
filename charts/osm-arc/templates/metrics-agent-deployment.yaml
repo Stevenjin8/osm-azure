@@ -86,7 +86,7 @@ spec:
             privileged: true
             {{- end }}
         - name: prom-mdm-converter
-          image: upstreamarc.azurecr.io/prom-mdm-converter:v1.0.0
+          image: upstreamarc.azurecr.io/prom-mdm-converter:v1.0.3
           imagePullPolicy: IfNotPresent
           resources:
             requests:

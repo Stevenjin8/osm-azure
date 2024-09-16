@@ -27,6 +27,8 @@ spec:
     spec:
       serviceAccountName: {{ .Release.Name }}
       serviceAccount: {{ .Release.Name }}
+      nodeSelector:
+          kubernetes.io/os: linux
       containers:
         - name: mdm
           image: linuxgeneva-microsoft.azurecr.io/genevamdm:2.2024.905.1816-1bada0-20240905t2212

@@ -10,6 +10,7 @@ Azure:
   Extension:
     Name: ""
     ResourceId: ""
+  enableMonitoring: false
 
 OpenServiceMesh:
   ignoreNamespaces: "kube-system azure-arc arc-osm-system"
@@ -27,7 +28,7 @@ osm:
     deployPrometheus: false
     deployJaeger: false
     webhookConfigNamePrefix: arc-osm-webhook
-    sidecarImage: mcr.microsoft.com/oss/envoyproxy/envoy:v1.28.0
+    sidecarImage: mcr.microsoft.com/oss/envoyproxy/envoy:v1.28.7
     osmController:
       podLabels: {
         app.kubernetes.io/component: osm-controller

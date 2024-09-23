@@ -38,3 +38,4 @@ else
       --auto-upgrade-minor-version false \
       --configuration-settings-file $EXTENSION_SETTINGS
 fi
+

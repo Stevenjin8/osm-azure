@@ -37,5 +37,6 @@ else
       --release-namespace $RELEASE_NAMESPACE \
       --version $EXTENSION_TAG \
       --auto-upgrade-minor-version false \
+      --config Azure.enableMonitoring=true \
       --configuration-settings-file $EXTENSION_SETTINGS
 fi

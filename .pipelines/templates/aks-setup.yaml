@@ -34,7 +34,7 @@ steps:
             -n ${AZURE_CLUSTER_NAME} \
             --enable-managed-identity \
             --no-ssh-key \
-            > /dev/null 2>&1
+            > /dev/null
         echo $?
       fi
 

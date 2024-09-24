@@ -12,6 +12,7 @@ steps:
       az login --identity > /dev/null 2>&1
 
       echo $?
+      echo $AKS_CLUSTER_LOCATION
 
       az group create -n ${AZURE_CLUSTER_NAME} -l ${AKS_CLUSTER_LOCATION} > /dev/null 2>&1
 

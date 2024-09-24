@@ -11,11 +11,14 @@ steps:
   - script: |
       az login --identity > /dev/null 2>&1
 
+      echo $?
+
       az group create -n ${AZURE_CLUSTER_NAME} -l ${AKS_CLUSTER_LOCATION} > /dev/null 2>&1
 
-      sleep 60
+      echo $?
 
       if [[ "${{ parameters.aksAddonRun }}" == "True" ]]; then
+        echo addon
         az aks create \
             -g ${AZURE_CLUSTER_NAME} \
             -n ${AZURE_CLUSTER_NAME} \
@@ -23,16 +26,17 @@ steps:
             --no-ssh-key \
             --kubernetes-version ${K8S_VERSION} \
             > /dev/null 2>&1
+        echo $?
       else
+        echo no addon
         az aks create \
             -g ${AZURE_CLUSTER_NAME} \
             -n ${AZURE_CLUSTER_NAME} \
             --enable-managed-identity \
             --no-ssh-key \
             > /dev/null 2>&1
+        echo $?
       fi
-
-      sleep 60
 
       az aks get-credentials -n ${AZURE_CLUSTER_NAME} -g ${AZURE_CLUSTER_NAME} -f $(System.DefaultWorkingDirectory)/kubeconfig.json
 

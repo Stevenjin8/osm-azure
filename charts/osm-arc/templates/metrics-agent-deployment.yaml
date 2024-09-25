@@ -31,7 +31,7 @@ spec:
           kubernetes.io/os: linux
       containers:
         - name: mdm
-          image: linuxgeneva-microsoft.azurecr.io/genevamdm:2.2024.905.1816-1bada0-20240905t2212
+          image: linuxgeneva-microsoft.azurecr.io/genevamdm:2.2024.920.1834-1cce09-20240920t1950
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -55,7 +55,7 @@ spec:
             - name: mdm-config
               mountPath: /tmp/geneva_mdm
         - name: msi-adapter
-          image: mcr.microsoft.com/azurearck8s/msi-adapter:1.0.6
+          image: mcr.microsoft.com/azurearck8s/msi-adapter:1.0.10
           imagePullPolicy: IfNotPresent
           resources:
             requests:

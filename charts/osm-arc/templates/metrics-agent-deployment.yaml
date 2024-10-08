@@ -1,3 +1,4 @@
+{{ if .Values.Azure.enableMonitoring -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,6 +28,8 @@ spec:
     spec:
       serviceAccountName: {{ .Release.Name }}
       serviceAccount: {{ .Release.Name }}
+      nodeSelector:
+          kubernetes.io/os: linux
       containers:
         - name: mdm
           image: linuxgeneva-microsoft.azurecr.io/genevamdm:2.2024.920.1834-1cce09-20240920t1950
@@ -86,7 +89,7 @@ spec:
             privileged: true
             {{- end }}
         - name: prom-mdm-converter
-          image: upstreamarc.azurecr.io/prom-mdm-converter:v1.0.0
+          image: upstreamarc.azurecr.io/prom-mdm-converter:v1.0.4
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -125,3 +128,4 @@ spec:
         - name: telegraf-conf
           configMap:
             name: osm-telegraf-config
+{{- end }}

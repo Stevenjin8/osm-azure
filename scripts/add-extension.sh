@@ -23,7 +23,8 @@ if [[ -z "$EXTENSION_SETTINGS" ]]; then
       --name $EXTENSION_NAME \
       --release-namespace $RELEASE_NAMESPACE \
       --version $EXTENSION_TAG \
-      --auto-upgrade-minor-version false
+      --auto-upgrade-minor-version false \
+      --config Azure.enableMonitoring=true
 else
    az k8s-extension create \
       --cluster-name $CLUSTERNAME \
@@ -36,5 +37,6 @@ else
       --release-namespace $RELEASE_NAMESPACE \
       --version $EXTENSION_TAG \
       --auto-upgrade-minor-version false \
+      --config Azure.enableMonitoring=true \
       --configuration-settings-file $EXTENSION_SETTINGS
 fi

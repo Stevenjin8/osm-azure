@@ -1,3 +1,4 @@
+{{ if .Values.Azure.enableMonitoring -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -48,3 +49,4 @@ data:
         Content-Type = "application/x-protobuf"
         Content-Encoding = "snappy"
         X-Prometheus-Remote-Write-Version = "0.1.0"
+{{- end }}

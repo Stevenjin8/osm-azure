@@ -26,3 +26,4 @@ dependencies:
 - name: osm
   version: "1.2.11"
   repository: "https://azure.github.io/osm"
+
